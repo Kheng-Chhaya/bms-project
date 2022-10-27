@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-8">
+        <div class="card card-default">
+            <div class="card-header card-header-border-bottom">
+                <h2>Genre Management</h2>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover ">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Decription</th>
+                            <th scope="col">Icon</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="genre : ${data}" th:object="${genre}" style="color: rgb(139, 99, 99);">
+                            <td th:text="*{id}">Id</td>
+                            <td th:text="*{title}">Title</td>
+                            <td th:text="*{description}">Description</td>
+                            <td th:text="*{icon}">Icon</td>
+                            <td>
+                                <button type="button" class="mb-1 btn btn-sm btn-outline-secondary" >
+                                    <a class=" mdi mdi-diamond-outline" th:href="@{/genre/edit/}+*{id}"></a>
+                                </button>
+                                <button th:data-id="*{id}" type="button" class="mb-1 btn btn-sm btn-outline-danger btn-delete" data-toggle="modal" data-target="#modalDelete">
+                                    <a class=" mdi mdi-close-circle-outline "></a>
+                                </button>
+                                
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
